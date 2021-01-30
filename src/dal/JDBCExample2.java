@@ -53,13 +53,16 @@ public class JDBCExample2 {
    
    }
    
-   public static void showdata() throws SQLException
+   public static ResultSet showdata() throws SQLException
    {
-	   ResultSet res = st.executeQuery("select * from student");
-	   while(res.next())
-	   {
-		   System.out.println(res.getInt(1)+ "," + res.getString(2) + " ," + res.getString(3) + " "+ res.getInt(4));
-	   }
+	   ResultSet res = st.executeQuery("select * from tbl_student");
+	   return res;
+   }
+   
+   public static ResultSet findData(int r) throws SQLException
+   {
+	   ResultSet res = st.executeQuery("select * from tbl_student where rno='"+r+"'");
+	   return res;
    }
    public static void closeConn()  throws Exception
    {
