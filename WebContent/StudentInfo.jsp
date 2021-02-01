@@ -28,6 +28,8 @@
 
 </form>
 
+<a href="viewstudentinfo.jsp">View Student Info</a>
+
 <%
     if(request.getParameter("q")!=null)
     {

@@ -9,20 +9,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>View Student Record Here</h1>
+<form action="UpdateSer" method="post">
 <table border="1">
-<tr><th>RNO</th><th>NAME</th><th>BRANCH</th><th>FEES</th></tr>
 <%
 JDBCExample2.connect();
 ResultSet res = JDBCExample2.findData(Integer.parseInt(request.getParameter("q")));
 if	(res.next())
-{ %>
-<tr><td><input type="text" name="txtrno" value="<%= res.getString(1) %>" /></td><td><input type="text" name="txtrno" value="<%= res.getString(2) %>" /></td><td><input type="text" name="txtrno" value="<%= res.getString(3) %>" /></td><td><input type="text" name="txtrno" value="<%= res.getString(4	) %>" /></td>
-<td><a href="Edit.jsp?q=<%= res.getString(1) %>">EDIT</a></td><td><a href="Delete.jsp?q=<%= res.getString(1) %>">DELETE</a></td>
+{ %>	
+<tr><th>RNO</th><td><input type="text" name="txtrno" value="<%= res.getString(1) %>" /></td></tr>
+<tr><th>NAME</th><td><input type="text" name="txtsname" value="<%= res.getString(2) %>" /></td></tr>
+<tr><th>BRANCH</th><td><input type="text" name="txtbranch" value="<%= res.getString(3) %>" /></td></tr>
+<tr><th>FEES</th><td><input type="text" name="txtfees" value="<%= res.getString(4	) %>" /></td></tr>
+<tr><td colspan="2"><input type="submit" value="Update" /></td>
 </tr>
 	 
 <% 
-
 }
 %>
+</form>
 </body>
 </html>
